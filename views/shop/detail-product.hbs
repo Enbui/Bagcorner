@@ -1,0 +1,89 @@
+<div class="row">
+    <p class="product_detail-title">Chi tiết sản phẩm</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+        <img src="../../static/images/products/{{product.imagePath}}" alt="" class="d-block w-100">
+    </div>
+    <div class="col-md-6 product_information">
+        <div class="product-infor-detail-header">
+            <div class="product_name-detail">{{product.name}}</div>
+            <div class="product_price-detail">$<span class="product_price-number">{{product.price}}</span></div>
+        </div>
+        <div class="product-infor-detail-content">
+            <p class="production-description-detail">{{product.description}}</p>
+        </div>
+        <div class="product-infor-detail-footer">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-left-minus btn btn-dark btn-number" data-type="minus"
+                        data-field="">
+                        <span class="glyphicon glyphicon-minus">-</span>
+                    </button>
+                </span>
+                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1"
+                    max="10">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-right-plus btn btn-dark btn-number" data-type="plus"
+                        data-field="">
+                        <span class="glyphicon glyphicon-plus">+</span>
+                    </button>
+                </span>
+            </div>
+            <p>
+                <a href="/add-to-cart/{{product._id}}" class="btn btn-light ml-auto button" role="button">
+                    + <i class="fas fa-shopping-cart"></i>
+                </a>
+
+                <a href="#" class="btn btn-dark mr-auto button" role="button">
+                    Mua ngay
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Chi tiết sản phẩm</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Đánh giá</a>
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                {{product.description}}
+            </div>
+            <div class="tab-pane fade show" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+
+                {{#if review}}
+                {{#each review}}
+                <div>
+                    <div>
+                        <p><strong>{{this.user.information.name}}</strong></p>
+                        <div class="{{this.ratingNumber}}">
+                            <div class="stars-outer">
+                                <div class="stars-inner {{this.ratingNummber}}"></div>
+                            </div>
+                        </div>
+                        <input class="ratingNumber" type="hidden" value="{{this.ratingNumber}}">
+                    </div>
+                    <p>{{this.review}}</p>
+                </div>
+                {{/each}}
+                {{else}}
+                <h5>Chưa có đánh giá cho sản phẩm này</h5>
+                {{/if}}
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

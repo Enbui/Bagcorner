@@ -1,0 +1,24 @@
+{{#each product}}
+<h5>Mời bạn đánh giá cho sản phẩm <strong> {{this.name}}</strong></h5>
+<form class="needs-validation" action="/rating-product" id="checkout-form" method="post">
+    <div class="mb-3">
+        <ul class="text-center">
+            <li class="star"><i class="fas fa-star"></i></li>
+            <li class="star"><i class="fas fa-star"></i></li>
+            <li class="star"><i class="fas fa-star"></i></li>
+            <li class="star"><i class="fas fa-star"></i></li>
+            <li class="star"><i class="fas fa-star"></i></li>
+        </ul>
+    <input class="rating" name="rating" type="hidden" required>
+    <input name="productId" value={{this._id}} type="hidden" required>
+    </div>
+    <div class="mb-3">
+        <label for="review">Review</label>
+        <textarea class="form-control description-textarea" name="review" id="review" placeholder="Nhận xét của bạn"
+            required></textarea>
+    </div>
+    <button class="btn btn-dark" onclick="myFunction()" type="submit">Gửi đánh giá</button>
+</form>
+
+
+{{/each}}

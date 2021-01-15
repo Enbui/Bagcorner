@@ -1,0 +1,34 @@
+<h3>Danh sách tài khoản admin</h3>
+<p>Tất cả {{count_product}} tài khoản admin</p>
+<a href="./add-admin">Thêm tài khoản</a>
+
+<input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+{{#if admin}}
+<table class="table table-stripted table-bordered full-width-div" id="data-table">
+    <thead <tr>
+        <th>Tên</th>
+        <th>Ngaỳ sinh</th>
+        <th>Địa chỉ</th>
+        <th>SĐT</th>
+        <th>email</th>
+        <th>Chi tiết</th>
+        <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each admin}}
+        <tr>
+            <td>{{this.information.name}}</td>
+            <td>{{this.information.birthday}}</td>
+            <td>{{this.information.address}}</td>
+            <td>{{this.information.phoneNumber}}</td>
+            <td>{{this.local.email}}</td>
+            <td><a href="./detail-admin/{{this._id}}">Chi tiết</a></td>
+            <td> <a onclick="return confirm('Bạn muốn xóa tài khoản này?')" href="./delete-admin/{{this._id}}">Xóa</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}

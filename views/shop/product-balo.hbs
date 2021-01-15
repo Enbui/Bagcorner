@@ -1,0 +1,64 @@
+{{!-- sort and filter product --}}
+
+<div class="row">
+   <div class=" search-products ">
+      {{!-- search name of products --}}
+      <input class="form-control d-inline search-product" type="text" placeholder="Tìm kiếm" aria-label="Search">
+   </div>
+   <div class=" sort_and_filter ">
+      {{!-- sorting price --}}
+      <div class="sorting sort-and_filter-element">
+         <select class="price-sorting type-regular float-right" name="price-sorting">
+            <option value="default">Mặc định</option>
+            <option value="ascending">Tăng dần</option>
+            <option value="descending">Giảm dần</option>
+            <option value="createDate">Mới nhất</option>
+         </select>
+      </div>
+   </div>
+   <div class=" sort_and_filter ">
+      <div class="filter sort-and_filter-element">
+         {{!-- filtering price --}}
+         <p class="filter-price">
+            <label for="amount">Price range:</label>
+            <input type="text" id="amount" class="amount" />
+         </p>
+
+         <div class="filter-slider" id="slider-range"></div>
+      </div>
+   </div>
+</div>
+
+
+{{!-- list product --}}
+
+{{#each products}}
+<div class="row">
+   <div class="row row-cols-1 row-cols-md-3 containerItems">
+      {{#each this}}
+      <div class="col mb-4 product_item-infor" data-date="{{this.createAt}}" data-price="{{this.price}}"
+         data-filter="{{this.price}}" data-search="{{this.name}}">
+         <div class="card">
+            <a href="/detail-product/{{this._id}}">
+               <img src="../../static/images/products/{{this.imagePath}}" alt="product image" class="card-img-top ">
+            </a>
+            <div class="card-body">
+               <p class="card-title">{{this.name}}</p>
+               <p class="card-text">$ {{this.price}}</p>
+               <p>
+                  <a href="/add-to-cart/{{this._id}}" class="btn btn-light ml-auto button" role="button">
+                     + <i class="fas fa-shopping-cart"></i>
+                  </a>
+
+                  <a href="#" class="btn btn-dark mr-auto button" role="button">
+                     Mua ngay
+                  </a>
+               </p>
+            </div>
+         </div>
+      </div>
+      {{/each}}
+   </div>
+
+</div>
+{{/each}}

@@ -1,0 +1,226 @@
+{{!-- profile infor --}}
+
+{{#each infor_user}}
+
+<div class="row">
+    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <img src="../../static/images/products/{{this.information.avatar}}" alt="stack photo" class="img product_image">
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container">
+            <h2>{{this.information.name}}</h2>
+        </div>
+        <hr>
+        <ul class="container details">
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i 
+                class="fas fa-transgender"></i></span>{{this.information.gendle}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-mobile-alt"></i></span>{{this.information.phoneNumber}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-envelope"></i></span>{{this.local.email}}
+                </p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-map-marker-alt"></i></span>{{this.information.address}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-birthday-cake"></i></span>{{this.information.birthday}}</p></a>
+        </ul>
+    </div>
+</div>
+{{/each}}
+
+{{!-- infor of payment --}}
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Chờ xác nhận</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Đã xác nhận</a>
+                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Đang giao</a>
+                <a class="nav-item nav-link" id="nav-4-tab" data-toggle="tab" href="#nav-4" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Giao hàng thành công</a>
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                {{#if infor_order_1}}
+                {{#each infor_order_1}}
+                <div class="card">
+                    <div class="card-header bg-dark text-light">
+                       ID đơn hàng : {{this.paymentId}}
+                    </div>
+                    <div class="card-body">
+                        {{#each this.items}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:1;">
+                                <img src="../../static/images/products/{{this.item.imagePath}}"
+                                    style="weight: 80px; height: 80px;" alt="">
+                            </div>
+                            <div style="flex:6;">
+                                <p><strong>{{this.item.name}}</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p>{{this.qty}} x $<strong>{{this.item.price}}</strong> </p>
+                            </div>
+                        </div>
+
+                        <hr>
+                        {{/each}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:7;">
+                                <p class="card-text">Phương thức thanh toán : {{this.paymentMethod}}</p>
+                                <p class="card-text"><strong>Đang chờ xác nhận</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p class="card-text">Phí vận chuyển : $<strong>0</strong> </p>
+                                <p class="card-text">Tổng tiền : $<strong>{{this.cart.totalPrice}}</strong> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="card" style="align-items: center; justify-content: center">
+                    <p>Không có đơn hàng nào</p>
+                    <img src="../../public/images/no-item.png" style="" alt="">
+                </div>
+                {{/if}}
+
+            </div>
+            <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                 {{#if infor_order_2}}
+                {{#each infor_order_2}}
+                <div class="card">
+                    <div class="card-header bg-dark text-light">
+                        {{this.paymentId}}
+                    </div>
+                    <div class="card-body">
+                        {{#each this.items}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:1;">
+                                <img src="../../static/images/products/{{this.item.imagePath}}"
+                                    style="weight: 80px; height: 80px;" alt="">
+                            </div>
+                            <div style="flex:6;">
+                                <p><strong>{{this.item.name}}</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p>{{this.qty}} x $<strong>{{this.item.price}}</strong> </p>
+                            </div>
+                        </div>
+
+                        <hr>
+                        {{/each}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:7;">
+                                <p class="card-text">Phương thức thanh toán : {{this.paymentMethod}}</p>
+                                <p class="card-text"><strong>Đang vận chuyển</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p class="card-text">Phí vận chuyển : $<strong>0</strong> </p>
+                                <p class="card-text">Tổng tiền : $<strong>{{this.cart.totalPrice}}</strong> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+            <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+                 {{#if infor_order_3}}
+                {{#each infor_order_3}}
+                <div class="card">
+                    <div class="card-header bg-dark text-light">
+                        {{this.paymentId}}
+                    </div>
+                    <div class="card-body">
+                        {{#each this.items}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:1;">
+                                <img src="../../static/images/products/{{this.item.imagePath}}"
+                                    style="weight: 80px; height: 80px;" alt="">
+                            </div>
+                            <div style="flex:6;">
+                                <p><strong>{{this.item.name}}</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p>{{this.qty}} x $<strong>{{this.item.price}}</strong> </p>
+                            </div>
+                        </div>
+
+                        <hr>
+                        {{/each}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:7;">
+                                <p class="card-text">Phương thức thanh toán : {{this.paymentMethod}}</p>
+                                <p class="card-text"><strong>Giao hàng thành công</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p class="card-text">Phí vận chuyển : $<strong>0</strong> </p>
+                                <p class="card-text">Tổng tiền : $<strong>{{this.cart.totalPrice}}</strong> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+            <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
+                  {{#if infor_order_4}}
+                {{#each infor_order_4}}
+                <div class="card">
+                    <div class="card-header bg-dark text-light">
+                        {{this.paymentId}}
+                    </div>
+                    <div class="card-body">
+                        {{#each this.items}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:1;">
+                                <img src="../../static/images/products/{{this.item.imagePath}}"
+                                    style="weight: 80px; height: 80px;" alt="">
+                            </div>
+                            <div style="flex:5;">
+                                <p><strong>{{this.item.name}}</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p>{{this.qty}} x $<strong>{{this.item.price}}</strong> </p>
+                            </div>
+                            <div style="flex:1">
+                                <a href="/rating-product/{{this.item._id}}" class="">Đánh giá</a>
+                            </div>
+                        </div>
+
+                        <hr>
+                        {{/each}}
+                        <div style="display:flex; flex-direction:row;">
+                            <div style="flex:7;">
+                                <p class="card-text">Phương thức thanh toán : {{this.paymentMethod}}</p>
+                                <p class="card-text"><strong>Đã hoàn thành</strong></p>
+                            </div>
+                            <div style="flex:3;">
+                                <p class="card-text">Phí vận chuyển : $<strong>0</strong> </p>
+                                <p class="card-text">Tổng tiền : $<strong>{{this.cart.totalPrice}}</strong> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{/if}}
+            </div>
+
+        </div>
+
+    </div>
+</div>

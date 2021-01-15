@@ -1,0 +1,141 @@
+<h3>Danh sách tài khoản khách hàng</h3>
+<p>Tất cả {{count_user}} tài khoản</p>
+
+
+<input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Tài khoản bạc</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Tài khoản vàng</a>
+                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Tài khoản kim cương</a>
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            {{!-- silver account --}}
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                {{#if user_silver}}
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Ngaỳ sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>email</th>
+                            <th>Chi tiết</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each user_silver}}
+                        <tr>
+                            <td>{{this.information.name}}</td>
+                            <td>{{this.information.birthday}}</td>
+                            <td>{{this.information.address}}</td>
+                            <td>{{this.information.phoneNumber}}</td>
+                            <td>{{this.local.email}}</td>
+                            <td><a href="./detail-user/{{this._id}}">Chi tiết</a></td>
+                            <td> <a onclick="return confirm('Bạn muốn xóa tài khoản khách hàng này?')"
+                                    href="./delete-user/{{this._id}}">Xóa</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                
+                    <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <h5>Chưa có tài khoản bạc</h5>
+                    </div>
+                
+                {{/if}}
+            </div>
+
+            {{!-- gold account --}}
+            <div class="tab-pane fade show active" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                {{#if user_gold}}
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Ngaỳ sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>email</th>
+                            <th>Chi tiết</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each user_gold}}
+                        <tr>
+                            <td>{{this.information.name}}</td>
+                            <td>{{this.information.birthday}}</td>
+                            <td>{{this.information.address}}</td>
+                            <td>{{this.information.phoneNumber}}</td>
+                            <td>{{this.local.email}}</td>
+                            <td><a href="./detail-user/{{this._id}}">Chi tiết</a></td>
+                            <td> <a onclick="return confirm('Bạn muốn xóa tài khoản khách hàng này?')"
+                                    href="./delete-user/{{this._id}}">Xóa</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+               
+                    <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <h5>Chưa có tài khoản vàng</h5>
+                    </div>
+                
+                {{/if}}
+            </div>
+
+            {{!-- diamond account --}}
+            <div class="tab-pane fade shown active" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+                {{#if user_diamond}}
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Ngaỳ sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>email</th>
+                            <th>Chi tiết</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each user_diamond}}
+                        <tr>
+                            <td>{{this.information.name}}</td>
+                            <td>{{this.information.birthday}}</td>
+                            <td>{{this.information.address}}</td>
+                            <td>{{this.information.phoneNumber}}</td>
+                            <td>{{this.local.email}}</td>
+                            <td><a href="./detail-user/{{this._id}}">Chi tiết</a></td>
+                            <td> <a onclick="return confirm('Bạn muốn xóa tài khoản khách hàng này?')"
+                                    href="./delete-user/{{this._id}}">Xóa</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+
+                    <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <h5>Chưa có tài khoản kim cương</h5>
+                    </div>
+               
+                {{/if}}
+            </div>
+
+        </div>
+
+    </div>
+</div>

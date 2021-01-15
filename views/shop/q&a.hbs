@@ -1,0 +1,51 @@
+<h3>Hỏi đáp</h3>
+<p><strong>Bagcorner hân hạnh được hỗ trợ quý khách</strong></p>
+<p>Mời bạn tham gia thảo luận tại đây, vui lòng nhập tiếng Việt có dấu </p>
+<form class="needs-validation" action="/q&a" method="post" novalidate="">
+    <div class="mb-3">
+        <label for="name">Tên bạn </label>
+        <input type="text" class="form-control" name="name" id="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="comment">Comment</label>
+        <input type="text" class="form-control" name="comment" id="comment" required>
+    </div>
+    <button class="btn btn-dark" type="submit">Gửi</button>
+</form>
+<hr>
+
+
+{{#if discusses}}
+{{#each discusses}}
+<p><strong>{{this.name}}</strong></p>
+<p style="margin-block-end: 0;">{{this.comment}}</p>
+<div class="row">
+    <a href="#" onclick="" class="like_button" >thích</a>
+    <button href="" onclick="" class="answer_button" id="{{this._id}}">trả lời</button>
+</div>
+<div class="list_answer">
+    {{!-- list reply of comment --}}
+{{#each this.answer}}
+<div class="answer row" style="margin-left: 15px;">
+    <p style=" marign-right: 5px; margin-left: 5px"><strong>{{this.name}}</strong></p>
+    <p style=" marign-right: 5px; margin-left: 5px">{{this.comment}}</p>
+</div>
+{{/each}}
+{{!-- reply a comment form --}}
+<form class="{{this._id}}" style="display: none; margin-left:23px; margin-right: 10px; padding-bottom: 10px; padding-top:10px;" action="/answer-comment/{{this._id}}" method="post" novalidate="">
+    <div class="input-group">
+        <input type="hidden" name="IDChar" value={{this._id}}>
+        <input type="text" class="form-control" name="answerName"  style="flex:1" placeholder="Tên bạn">
+        <input type="text" class="form-control" name="answerComment" style="flex:8"
+            placeholder="@{{this.name}}:">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary btn-dark" type="submit">Gửi</button>
+        </div>
+    </div>
+</form>
+</div>
+
+{{/each}}
+{{else}}
+<h3>Chưa có bình luận nào</h3>
+{{/if}}

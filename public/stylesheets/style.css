@@ -1,0 +1,305 @@
+* {
+  font-family: 'Be Vietnam', sans-serif;
+}
+
+
+.islogout {
+  display: none;
+}
+
+.product_item {
+  border: solid 0.5px lightgray;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.details li {
+  list-style: none;
+}
+li {
+    margin-bottom:10px;
+    
+}
+
+.product_image {
+margin-left: 25%;
+margin-top: 5%;
+max-height: 200px;
+max-width: 200px;
+width: 100%;
+border-radius: 100px;
+}
+.product_name {
+    font-size: 18px;
+    font-weight: 300,
+}
+
+.product_price {
+  font-size: 14px;
+}
+
+.button {
+  margin: 5px;
+}
+
+.row {
+  padding: 5px;
+}
+
+.full-width-div {
+  width: 100%;
+  position:absolute;
+  left: 0;
+}
+
+.list_product {
+  position: relative;
+  top: 700px;
+}
+
+.rating {
+  display: inline-block;
+  flex-direction: row;
+}
+
+.input-number {
+  width: 40px;
+}
+
+.product_detail-title {
+  margin : auto;
+  font-size: 20px;
+}
+
+.product_information {
+  flex: 1;
+  flex-direction: column;
+}
+
+.product-infor-detail-header {
+  flex: 1;
+}
+
+.product-infor-detail-content {
+  flex : 3;
+}
+
+.product-infor-detail-footer {
+  flex: 1
+}
+
+.product_name-detail {
+  font-family: 'Thasadith', sans-serif;
+  color: black;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.product_price-detail {
+  font-family: 'Thasadith', sans-serif;
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.product_price-number {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.no-item-image {
+  width: 400px;
+  height: 400px;
+  margin-top : 100px;
+}
+.no-item-notice {
+  margin-top: 40px;
+  margin-bottom:40px;
+}
+
+.search_text {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom:  1px solid black;
+  border-top: 0px;
+  border-left : 0px;
+  border-right: 0px;
+  border-radius : 0px;
+}
+
+.search_icon {
+ font-size:24px;
+ color: black;
+ font-weight: 100;
+}
+.search_icon:hover {
+  color: black;
+}
+
+.search-product {
+  border-bottom: 1px solid black;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+}
+
+.search-product:focus {
+  border-bottom: 1px solid black;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+.amount {
+  border: 0px !important;
+  width: 80px !important;
+
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+.sort-and_filter-element {
+  margin: 10px;
+  padding: 5px;
+}
+
+.price-sorting, .price-sorting:focus {
+  font-family: 'Be Vietnam', sans-serif ;
+  border: 0px !important;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  outline-width: 0cm;
+}
+
+.filter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* tabs infor detail */
+
+ .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: black;
+  background-color: transparent;
+  border-color: transparent transparent black;
+  border-bottom: 2px solid !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: gray;
+  font-size: 20px;
+}
+
+/* textarea */
+
+.description-textarea {
+  /* width:250px; */
+  min-height:116px;
+  max-height:300px;
+  resize:none;
+}
+
+.like_button {
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-top: 1px;
+  font-size: 15px;
+}
+
+.like_button:hover {
+  text-decoration: none;
+}
+
+/* answer comments */
+
+.list_answer {
+  background-color: #f0f0f0;
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.answer_button {
+  font-size: 15px;
+  font-family: 'Be Vietnam', sans-serif;
+  color: #007bff;
+  font-weight: 400;;
+  background-color: transparent;
+  border: none;
+}
+
+.answer_button:hover {
+  color: #0056b3;
+}
+.answer_button:focus {
+  outline: none;
+} 
+
+.form-control:focus {
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+
+
+/* rating start  */
+.star {
+  font-size: 30px;
+  color: gray;
+  display: inline-block;
+
+}
+
+.over {
+  color: yellow;
+
+}
+
+.fix {
+  color: #ffa660;
+}
+
+.rating {
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+/* show list rating star of product */
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width : 0;
+}
+
+.stars-outer::before {
+  content: " \f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color:gray;
+}
+
+.stars-inner::before {
+  content: " \f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color:yellow;
+}
+
+
+

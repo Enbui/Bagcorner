@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-sm-6 col-md-12 col-md-offset-12 col-sm-offet-12">
+        <h1 class="">Cập nhật thông tin cá nhân</h1>
+        <hr>
+        {{#if hasErrors}}
+        <div class="alert alert-danger">
+            {{#each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        {{!-- form  --}}
+        <form action="/user/update-profile?_csrf={{csrfToken}}" method="post" id='checkout-form'
+            enctype="multipart/form-data">
+            {{!-- csrf token --}}
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="file" name="productImage"> <br />
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Tên hiển thị</label>
+                        <input type="text" id="name" name="name" value="{{inforUser.information.name}}"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12 col-md-8 col-sm-12">
+                    <div class="form-group">
+                        <label for="birthday">Ngày sinh</label>
+                        <input type="date" id="birthday" name="birthday" class="form-control" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12 col-md-8 col-sm-12">
+                    <div class="form-group">
+                        <label for="birthday">Giới tính</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gendle" id="gendle"
+                                value="Nam" checked>
+                            <label class="form-check-label" for="gendle">
+                                Nam
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gendle" id="gendle"
+                                value="Nữ">
+                            <label class="form-check-label" for="gendle">
+                                Nữ
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12 col-md-8 col-sm-12">
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" id="address" name="address" value="{{inforUser.information.address}}"
+                            class="form-control" required>
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12 col-md-8 col-sm-12">
+                    <div class="form-group">
+                        <label for="phone_number">Số điện thoại</label>
+                        <input type="text" id="phone_number" name="phone_number"
+                            value="{{inforUser.information.phoneNumber}}" class="form-control" required>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <button type="submit" class="btn btn-dark mx-auto" style="">Lưu thông tin</button>
+        </form>
+    </div>
+</div>

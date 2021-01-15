@@ -1,0 +1,32 @@
+{{# each products}}  
+   <div class="row">
+      {{# each this}}
+         <div class = "col-sm-6 col-md-3 product_item">
+      <div class = "thumbnail">
+         <a href="/detail-product/{{this._id}}">
+            <img src="../../static/images/products/{{this.imagePath}}" alt = "product image" class="product_image">
+         </a>
+      </div>
+      
+      <div class = "caption">
+        <h5 class ="product_name font-weight-lighter">{{ this.name }} </h5>
+         <p class="product_price">{{ this.price }}</p>
+         
+         <p>
+            <a href = "/add-to-cart/{{this._id}}" class = "btn btn-light ml-auto button" role = "button">
+                + <i class="fas fa-shopping-cart"></i>
+            </a> 
+            
+            <a href = "#" class = "btn btn-dark mr-auto button" role = "button">
+               Mua ngay
+            </a>
+         </p>
+      </div>
+   </div>
+      {{/each}}
+   </div>
+{{/each}}
+
+
+
+

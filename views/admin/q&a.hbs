@@ -1,0 +1,41 @@
+<h3>Giải đáp khách hàng</h3>
+ <input type="hidden" name="_csrf" value="{{csrfToken}}" id="sended_token">
+
+{{#if discusses}}
+{{#each discusses}}
+<p><strong>{{this.name}}</strong></p>
+<p style="margin-block-end: 0;">{{this.comment}}</p>
+<div class="row">
+    <a href="#" onclick="" class="like_button">thích</a>
+    <button href="" onclick="" class="answer_button" id="{{this._id}}">trả lời</button>
+</div>
+<div class="list_answer">
+    {{!-- list reply of comment --}}
+    {{#each this.answer}}
+    <div class="answer row" style="margin-left: 15px;">
+        <p style=" marign-right: 5px; margin-left: 5px"><strong>{{this.name}}</strong></p>
+        <p style=" marign-right: 5px; margin-left: 5px">{{this.comment}}</p>
+    </div>
+    {{/each}}
+    {{!-- reply a comment form --}}
+    <form class="{{this._id}}"
+        style="display: none; margin-left:23px; margin-right: 10px; padding-bottom: 10px; padding-top:10px;"
+        action="/admin/q&a/{{this._id}}?_csrf={{csrfToken}}" method="post" novalidate="">
+        <div class="input-group">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" class ="token">
+           
+            <input type="hidden" name="IDChar" value={{this._id}}>
+            <input type="text" class="form-control" name="answerComment" style="flex:8" placeholder="@{{this.name}}:">
+            <div class="input-group-append">
+               
+                <button class="btn btn-outline-secondary btn-dark reply_button" type="submit">Gửi</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{{/each}}
+{{else}}
+<h3>Chưa có bình luận nào</h3>
+{{/if}}
+

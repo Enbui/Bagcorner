@@ -1,0 +1,74 @@
+{{!-- profile infor --}}
+
+{{#each infor_user}}
+<h5>Hồ sơ cá nhân</h5>
+
+<div class="row">
+    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <img src="../../static/images/products/{{this.information.avatar}}" alt="stack photo" class="img product_image">
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container">
+            <h2>{{this.information.name}}</h2>
+        </div>
+        <hr>
+        <ul class="container details">
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i 
+                class="fas fa-transgender"></i></span>{{this.information.gendle}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-mobile-alt"></i></span>{{this.information.phoneNumber}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-envelope"></i></span>{{this.local.email}}
+                </p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-map-marker-alt"></i></span>{{this.information.address}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-birthday-cake"></i></span>{{this.information.birthday}}</p></a>
+        </ul>
+    </div>
+</div>
+{{/each}}
+
+{{!-- infor of payment --}}
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Nhật ký hoạt động</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Nhật ký hoạt động</a>
+                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Nhật ký hoạt động</a>
+                <a class="nav-item nav-link" id="nav-4-tab" data-toggle="tab" href="#nav-4" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Nhật ký hoạt động</a>
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+               
+            </div>
+            <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+               
+            </div>
+            <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+               
+            </div>
+            <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
+              
+            </div>
+
+        </div>
+
+    </div>
+</div>

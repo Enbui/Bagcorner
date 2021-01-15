@@ -1,0 +1,39 @@
+{
+  "name": "project3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "async": "^3.2.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "~1.4.4",
+    "csurf": "^1.11.0",
+    "date-and-time": "^0.14.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "handlebars": "^4.3.5",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.10.14",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "n": "^7.0.0",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "paypal-rest-sdk": "^1.8.1",
+    "socket.io": "^1.7.4",
+    "socketio": "^1.0.0"
+  }
+}

@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-8 order-md-1">
+        <h3 class="mb-3 "><strong>Thông tin thanh toán</strong> </h3>
+        <form class="needs-validation" action="/checkout" method="post" novalidate="">
+            <div class="mb-3">
+                <label for="username">Họ tên</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="name" id="name" required="">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">Email </label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone_number">Số điện thoại </label>
+                <input type="text" class="form-control" name="phone_number" id="phone_number" required>
+            </div>
+            <div class="mb-3">
+                <label for="address">Địa chỉ</label>
+                <input type="text" class="form-control" name="address" id="address" required="">
+            </div>
+            <div class="mb-3">
+                <label for="district">Quận/huyện</label>
+                <input type="text" class="form-control" name="district" id="district" required="">
+            </div>
+            <div class="mb-3">
+                <label for="city">Thành phố/tỉnh</label>
+                <input type="text" class="form-control" name="city" id="city" required="">
+            </div>
+            <div class="mb-3">
+                <label for="postal_code">Mã tỉnh/thành phố</label>
+                <input type="text" class="form-control" name="postal_code" id="postal_code" required="">
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info">Lưu thông tin cho lần thanh toán sau</label>
+            </div>
+            <hr class="mb-4">
+            <h4 class="mb-3">Phương thức thanh toán</h4>
+            <div class="d-block my-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="home"
+                        checked>
+                    <label class="form-check-label" for="paymentMethod">
+                        Thanh toán khi nhận hàng
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="banking">
+                    <label class="form-check-label" for="paymentMethod">
+                        Thanh toán qua chuyển khoản trực tiếp
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod" value="paypal">
+                    <label class="form-check-label" for="paymentMethod">
+                        Thanh toán qua Paypal
+                    </label>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-dark btn-lg btn-block" type="submit">Thanh toán</button>
+        </form>
+    </div>
+</div>

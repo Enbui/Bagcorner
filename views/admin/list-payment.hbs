@@ -1,0 +1,190 @@
+<h3> Danh sách đơn hàng</h3>
+
+<input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Chưa xác nhận</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Đợi giao hàng</a>
+                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Đang giao hàng</a>
+                <a class="nav-item nav-link" id="nav-4-tab" data-toggle="tab" href="#nav-4" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Hoàn thành</a>
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent full-width-div">
+
+            {{!-- chưa xác nhận --}}
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                {{#if order_type1}}
+                <h5>Đơn hàng chưa xác nhận</h5>
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead <tr>
+                        <th>ID</th>
+                        <th>Ngày đặt</th>
+                        <th>Giá tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Tình trạng thanh toán</th>
+                        <th>Chi tiết</th>
+                        <th>Giao hàng</th>
+                        <th>Gửi mail</th>
+                        <th>Hủy đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each order_type1}}
+                        <tr>
+                            <td>{{this.paymentId}}</td>
+                            <td>{{this.createAt}}</td>
+                            <td>{{this.cart.totalPrice}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>{{this.paymentStatus}}</td>
+                            <td><a href="./detail-payment/{{this._id}}">Chi tiết</a></td>
+                            <td><a onclick="return confirm('Xác nhận đơn hàng này?')" href="./confirm-payment/{{this._id}}">Xác nhận</a></td>
+                            <td><a href="./send-email/{{this._id}}">Gửi mail</a></td>
+                            <td> <a onclick="return confirm('Xác nhận hủy đơn hàng này?')"
+                                    href="./delete-payment/{{this._id}}">Hủy</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+
+                <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                    <h5>Chưa có đơn hàng</h5>
+                </div>
+
+                {{/if}}
+            </div>
+
+            {{!-- Đợi giao hàng --}}
+            <div class="tab-pane fade show active" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                {{#if order_type2}}
+                <h5>Đơn hàng chuẩn bị giao </h5>
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead <tr>
+                        <th>ID</th>
+                        <th>Ngày đặt</th>
+                        <th>Giá tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Tình trạng thanh toán</th>
+                        <th>Chi tiết</th>
+                        <th>Giao hàng</th>
+                        <th>In hóa đơn</th>
+                        <th>Hủy đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each order_type2}}
+                        <tr>
+                            <td>{{this.paymentId}}</td>
+                            <td>{{this.createAt}}</td>
+                            <td>{{this.cart.totalPrice}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>{{this.paymentStatus}}</td>
+                            <td><a href="./detail-payment/{{this._id}}">Chi tiết</a></td>
+                            <td><a onclick="return confirm('Xác nhận giao đơn hàng này?')" href="./delivery-payment/{{this._id}}">Giao hàng</a></td>
+                            <td><a href="./print-payment/{{this._id}}">In hóa đơn</a></td>
+                            <td><a onclick="return confirm('Xác nhận hủy đơn hàng này?')"
+                                    href="./delete-payment/{{this._id}}">Xóa</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+
+                <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                    <h5>Chưa có đơn hàng</h5>
+                </div>
+
+                {{/if}}
+            </div>
+
+            {{!-- Đang giao hàng --}}
+            <div class="tab-pane fade shown active" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+                {{#if order_type3}}
+                <h5>Đơn hàng đang giao</h5>
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead <tr>
+                        <th>ID</th>
+                        <th>Ngày đặt</th>
+                        <th>Giá tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Tình trạng thanh toán</th>
+                        <th>Chi tiết</th>
+                        <th>Giao hàng</th>
+                        <th>Hủy đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each order_type3}}
+                        <tr>
+                            <td>{{this.paymentId}}</td>
+                            <td>{{this.createAt}}</td>
+                            <td>{{this.cart.totalPrice}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>{{this.paymentStatus}}</td>
+                            <td><a href="./detail-payment/{{this._id}}">Chi tiết</a></td>
+                            <td><a onclick="return confirm('Xác nhận đơn hàng giao thành công?')" href="./compelete-payment/{{this._id}}">Giao thành công</a></td>
+                            <td> <a onclick="return confirm('Xác nhận hủy đơn hàng này?')"
+                                    href="./delete-payment/{{this._id}}">Xóa</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+
+                <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                    <h5>Chưa có đơn hàng</h5>
+                </div>
+
+                {{/if}}
+            </div>
+
+            {{!-- Hoàn thành --}}
+            <div class="tab-pane fade shown active" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
+                {{#if order_type4}}
+                <h5> Đơn hàng hoàn thành</h5>
+                <table class="table table-stripted table-bordered full-width-div" id="data-table">
+                    <thead <tr>
+                        <th>ID</th>
+                        <th>Ngày đặt</th>
+                        <th>Giá tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Tình trạng thanh toán</th>
+                        <th>Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each order_type4}}
+                        <tr>
+                            <td>{{this.paymentId}}</td>
+                            <td>{{this.createAt}}</td>
+                            <td>{{this.cart.totalPrice}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>{{this.paymentStatus}}</td>
+                            <td><a href="./detail-payment/{{this._id}}">Chi tiết</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+
+                <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                    <h5>Chưa có đơn hàng</h5>
+                </div>
+
+                {{/if}}
+            </div>
+
+        </div>
+
+    </div>
+</div>

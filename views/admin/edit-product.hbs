@@ -1,0 +1,48 @@
+
+
+<div class="row">
+    <div class="col-md-8 order-md-1">
+        <h3 class="mb-3 "><strong>Cập nhật sản phẩm</strong> </h3>
+        {{#if hasErrors}}
+        <div class="alert alert-danger">
+            {{#each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <form class="needs-validation" action="../edit-product?_csrf={{csrfToken}}" id="edit-form" method="post"
+            enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="IDChar" value={{editedProduct._id}}>>
+
+            <div class="mb-3">
+                <label for="name">Tên sản phẩm</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="name" id="name" value="{{editedProduct.name}}"
+                        required>
+                </div>
+            </div>
+            <input type="file" name="productImage">
+            <div class="mb-3">
+                <label for="type">Loại sản phẩm</label>
+                <input type="text" class="form-control" name="type" id="type" value="{{editedProduct.type}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="price">Giá sản phẩm</label>
+                <input type="text" class="form-control" value={{editedProduct.price}} name="price" id="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="descitption">Mô tả sản phẩm</label>
+                <textarea class="form-control description-textarea" name="description" id="description"
+                    required>{{editedProduct.description}} </textarea>
+            </div>
+            <div class="mb-3">
+                <label for="quantity">Số lương có sẵn</label>
+                <input type="text" class="form-control" value={{editedProduct.quantity}} name="quantity" id='quantity'
+                    required>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-dark btn-lg btn-block" type="submit">Thay đổi</button>
+        </form>
+    </div>
+</div>

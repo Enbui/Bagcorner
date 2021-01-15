@@ -1,0 +1,42 @@
+
+<h3 class="profile_title">Thông tin tài khoản Admin </h3>
+{{#if infor}}
+<div class="row">
+    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <img src="../../static/images/products/{{infor.information.avatar}}" alt="stack photo" class="img product_image">
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container">
+            <h2>{{infor.information.name}}</h2>
+        </div>
+        <hr>
+        <ul class="container details">
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-transgender"></i></span>{{infor.information.gendle}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-mobile-alt"></i></span>{{infor.information.phoneNumber}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-envelope"></i></span>{{infor.local.email}}
+                </p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-map-marker-alt"></i></span>{{infor.information.address}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-birthday-cake"></i></span>{{infor.information.birthday}}</p></a>
+        </ul>
+    </div>
+</div>
+{{/if}}
+<hr>
+<h3>Thông tin hoạt động</h3>
+
+
+

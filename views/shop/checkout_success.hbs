@@ -1,0 +1,22 @@
+<h4 class="notification"> Đặt hàng thành công</h4>
+<h3>Thông tin nhận hàng</h3>
+<div class="payment">
+    <div class="payment_receiver">
+        <p class="name">Người nhận : {{inforOrder.inforReceiver.name}}</p>
+        <p class="">Địa chỉ nhận: {{inforOrder.inforReceiver.address}}</p>
+        <p class="">Quận/huyện : {{inforOrder.inforReceiver.district}}</p>
+        <p class="city">Tỉnh/thành phố : {{inforOrder.inforReceiver.city}}</p>
+        <p class="phome_number">SĐT: {{inforOrder.inforReceiver.phoneNumber}}</p>
+    </div>
+    <div class="payment_list-product">
+        {{#each products}}
+        <div class="payment_product-item">
+            <p class="product-item">Sản phẩm :  {{this.item.name}} x {{this.qty}}</p>
+        </div>
+        {{/each}}
+    </div>
+    <p class="payment_total"> Tổng tiền : {{inforOrder.cart.totalPrice}}</p>
+    <p class="payment_status">Trạng thái thanh toán ; {{inforOrder.paymentStatus}}</p>
+    <p class="payment_delivery"> Phương thức thanh toán : {{inforOrder.paymentMethod}}</p>
+    <p class="payment_delivery"> Trạng thái thanh toán : {{inforOrder.deliveryStatus}}</p>
+</div>

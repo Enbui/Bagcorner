@@ -1,0 +1,56 @@
+<h3 class="profile_title">Thông tin khách hàng </h3>
+{{#if infor_user}}
+<div class="row">
+    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <img src="../../static/images/products/{{infor_user.information.avatar}}" alt="stack photo" class="img product_image">
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container">
+            <h2>{{infor_user.information.name}}</h2>
+        </div>
+        <hr>
+        <ul class="container details">
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-transgender"></i></span>{{infor_user.information.gendle}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px; margin-right: 10px;"><i
+                            class="fas fa-mobile-alt"></i></span>{{infor_user.information.phoneNumber}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-envelope"></i></span>{{infor_user.local.email}}
+                </p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-map-marker-alt"></i></span>{{infor_user.information.address}}</p>
+            </li>
+            <li>
+                <p><span style="width:50px;margin-right: 10px;"><i
+                            class="fas fa-birthday-cake"></i></span>{{infor_user.information.birthday}}</p></a>
+        </ul>
+    </div>
+</div>
+{{/if}}
+<hr>
+
+
+<h3>Đơn hàng</h3>
+{{#if infor_order}}
+{{#each infor_order}}
+<div class="card">
+    <ul class="list-group list-group-flush">
+        {{#each this.items}}
+        <li class="list-group-item">
+            {{this.item.name}} : {{this.qty}} x {{this.price}}
+        </li>
+        {{/each}}
+    </ul>
+    <div> Tổng tiền : ${{this.cart.totalPrice}}</div>
+</div>
+{{/each}}
+{{else}}
+<h3>Chưa có đơn hàng</h3>
+{{/if}}

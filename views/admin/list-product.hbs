@@ -1,0 +1,108 @@
+<h3>Danh sách sản phẩm</h3>
+<p>Tất cả {{count_product}} sản phẩm</p>
+<a href="./add-product">Thêm sản phẩm</a>
+<div class="row">
+    <div class="col-xs-12 col-md-12 ">
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Túi xách</a>
+                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Túi tote</a>
+                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Balo</a>
+
+            </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+                {{#if product_1}}
+                <h5>Tổng số sản phẩm :</h5>
+                <div id="list_product">
+                    {{#each product_1}}
+                    <div class="product_item">
+                        <img src="../../static/images/products/{{this.imagePath}}" alt="" class="product_image">
+                        <div class="product_name">Tên sản phẩm : {{this.name}}</div>
+                        <div class="product_price">Giá : {{this.price}}</div>
+                        <div class="product_description">Mô tả : {{this.description}}</div>
+                        <div class="product_quantity">Số lượng hiên có : {{this.quantity}}</div>
+                        <div class="product_quantity">Số lượng đã bán : {{this.sold}}</div>
+
+
+                        <div class="button">
+                            <a href="./edit-product/{{this._id}}">Cập nhật</a>
+                            <a onclick="return confirm('Bạn muốn xóa sản phẩm này?')"
+                                href="./delete-product/{{this._id}}">Xóa</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                {{else}}
+                <div class="row">
+                    <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <h2>Không có sản phẩm nào trong kho</h2>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                    {{#if product_2}}
+                    <h5>Tổng số sản phẩm :</h5>
+                    <div id="list_product">
+                        {{#each product_2}}
+                        <div class="product_item">
+                            <img src="../../static/images/products/{{this.imagePath}}" alt="" class="product_image">
+                            <div class="product_name">Tên sản phẩm : {{this.name}}</div>
+                            <div class="product_price">Giá : {{this.price}}</div>
+                            <div class="product_description">Mô tả : {{this.description}}</div>
+                            <div class="product_quantity">Số lượng hiện có: {{this.quantity}}</div>
+                            <div class="product_quantity">Số lượng đã bán : {{this.sold}}</div>
+
+
+                            <div class="button">
+                                <a href="./edit-product/{{this._id}}">Cập nhật</a>
+                                <a onclick="return confirm('Bạn muốn xóa sản phẩm này?')"
+                                    href="./delete-product/{{this._id}}">Xóa</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <div class="row">
+                        <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                            <h2>Không có sản phẩm nào trong kho</h2>
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+                        {{#if product_3}}
+                        <h5>Tổng số sản phẩm :</h5>
+                        <div id="list_product">
+                            {{#each product_3}}
+                            <div class="product_item">
+                                <img src="../../static/images/products/{{this.imagePath}}" alt="" class="product_image">
+                                <div class="product_name">Tên sản phẩm : {{this.name}}</div>
+                                <div class="product_price">Giá : {{this.price}}</div>
+                                <div class="product_description">Mô tả : {{this.description}}</div>
+                                <div class="product_quantity">Số lượng hiện có: {{this.quantity}}</div>
+                                <div class="product_quantity">Số lượng đã bán : {{this.sold}}</div>
+
+
+                                <div class="button">
+                                    <a href="./edit-product/{{this._id}}">Cập nhật</a>
+                                    <a onclick="return confirm('Bạn muốn xóa sản phẩm này?')"
+                                        href="./delete-product/{{this._id}}">Xóa</a>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{else}}
+                        <div class="row">
+                            <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
+                                <h2>Không có sản phẩm nào trong kho</h2>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+
+
+   <input type="hidden" name="_csrf" value="{{csrfToken}}">

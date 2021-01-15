@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  {{!-- fixed-top --}}
+  <h5 class="navbar-brand">Bagcorner</h5>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/list-product">Sản phẩm </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/list-payment">Đơn hàng</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/list-user">Khách hàng</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/q&a">Hỏi đáp</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/list-admin">Quản trị</a>
+      </li>
+    </ul>
+
+
+    <ul class="nav navbar-nav ml-auto" style="margin-right:200px;">
+
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#if login}}
+          <a class="dropdown-item" href="/admin/profile">Quản lý tài khoản</a>
+          <a class="dropdown-item" href="/admin/update-profile">Thay đổi thông tin </a>
+          <a class="dropdown-item" href="#">Thay đổi mật khẩu </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/user/logout">Đăng xuất</a>
+          {{else}}
+          <a class="dropdown-item" href="/admin/signin">Đăng nhập</a>
+          {{/if}}
+        </div>
+      </li>
+
+
+
+    </ul>
+
+  </div>
+</nav>
